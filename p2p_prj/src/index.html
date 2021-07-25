@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Democratic Election</title>
+</head>
+<body>
+
+    <div class="container" >
+		<div class="row">
+			<div id="initUI" class="col-lg-4">
+				<h1 class="text-center">Let's start!</h1>
+				<p class="lead"> 
+					The SOUL token is an ERC-20 token which is used in the Democratic Election,
+					choose the number of voters (i.e. quorum), the number of candidates and 
+					click on the button to deploy the contracts and to distribute some souls.
+				</p>
+				<div class="form-group">
+					
+					<label for="nCandidates">Number of candidates</label>
+					<input id="nCandidates" class="form-control col-md-3" name="nCandidates" type="number" min="2" max="10">
+					<label for="nVoters">Number of voters</label>
+					<input id="nVoters" class="form-control col-md-3" name="nVoters" type="number" min="2" max="10">
+					<br>
+					<button id="linkBtn" class="btn-primary">Start</button>
+				</div>   
+			</div>
+			<h1 id="initialAction" class="col-lg-7 display-5"></h1>
+		</div>
+        <div id="mainUI" class="col-lg-auto">
+			<div id="instructions">
+				<h1 class="text-center">Democratic Election</h1>
+				<p class="lead"> 
+					Please use the list of addresses and keys at the end of the page to interact with the Dapp,
+					you will need to import them and connect to MetaMask. After the voter account has been selected
+					fill the form to compute, cast and finally open the envelope.
+				</p>
+			</div>
+			<div class="row">
+				<div id="computeForm" class="col-lg-5">
+				
+					<div class="form-group">
+						
+						<label for="sigil">Sigil</label>
+						<input id="sigil" class="form-control col-md-5" name="sigil" type="number">
+						<label for="symbol">Symbol (address of candidate)</label>
+						<select id="symbol" class="form-control col-md-5" name="symbol">
+						</select>
+						<label for="soul">Amount</label>
+						<div class="container">
+							<div class="row">
+								<input id="soul" class="form-control col-sm-5" name="sigil" type="number" min="1">&nbsp;
+								<select id="unit" class="form-control col-sm-3" name="soul" type="number">
+									<option value="1000000000000000000"> soul </option>>
+									<option value="1000000000"> hedgies (1e-9 soul) </option>
+									<option value="1"> smolsoul (1e-18 soul)</option>
+								</select>
+							</div>
+						</div>
+						<br>
+						
+						<button id="computeBtn" class="btn-primary">COMPUTE ENVELOPE</button>
+					</div>
+				</div>
+				<div id="castForm" class="col-lg-5">
+				<div class="form-group">
+					<label for="envelope">Envelope</label>
+					<input id="envelope" class="form-control col-lg-auto" name="envelope" readonly>
+					<br>
+					<button id="castBtn" class="btn-primary">CAST ENVELOPE</button>
+				</div> 
+			</div>
+				<h1 id="currentAction" class="col-lg-7 display-5"></h1>
+			</div>
+			
+			<div id="whoIsMayor" class="col-lg-auto">
+				<div class="form-group text-center">
+					<h1 id="displayOutcome" class="display-2">Mayor or Sayonara?</h1>
+					<h1 id="displayMayor" class="display-4"></h1>
+					<br>
+					<button id="mayorBtn" class="btn-primary">ELECT MAYOR</button>
+				</div>
+			</div>
+			
+        </div>
+		<hr>
+		<div id="addresses" class="col-lg-auto">
+			<h3 id="candidatesTitle" class="text-center"></h3>
+			<div id="candidatesList" class="lead"></div>
+			<h3 id="votersTitle" class="text-center"></h3>
+			<div id="votersList" class="lead"></div>
+        </div>
+    </div>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Web3 -->
+    <script src="./dist/web3.min.js"></script>
+    <script src="./dist/truffle-contract.js"></script>
+    <!-- App -->
+    <script src="./js/app.js"></script>
+    
+</body>
+</html>
+
+
+
+
+
+
